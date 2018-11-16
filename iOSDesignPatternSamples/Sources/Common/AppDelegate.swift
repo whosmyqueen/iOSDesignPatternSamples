@@ -18,10 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         if let viewControllers = (window?.rootViewController as? UITabBarController)?.viewControllers,
-            let searchVC = viewControllers.flatMap({
+            let searchVC = viewControllers.compactMap({
                 ($0 as? UINavigationController)?.topViewController as? SearchViewController
             }).first,
-            let favoriteVC = viewControllers.flatMap({
+            let favoriteVC = viewControllers.compactMap({
                 ($0 as? UINavigationController)?.topViewController as? FavoriteViewController
             }).first {
             searchVC.favoriteModel = favoriteVC.favoriteModel
